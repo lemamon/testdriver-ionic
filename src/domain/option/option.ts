@@ -1,3 +1,3 @@
-export class Option{
-  constructor(public nome: string, public preco: number){}
+export class Option {
+  constructor(public nome: string, public preco: number) { }
 }

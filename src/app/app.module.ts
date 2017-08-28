@@ -5,12 +5,12 @@ import { HomePage } from '../pages/home/home';
 import { ChoosePage } from '../pages/choose/choose';
 import { RegisterPage } from '../pages/register/register';
 import { BookingService } from "../domain/booking/booking-service";
-import { Storage } from '@ionic/storage'
+import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-function provideStorage(){
-  return new Storage(['indexddb'],{
+function provideStorage() {
+  return new Storage(['indexeddb'], {
     name: 'testDriver',
     storeName: 'bookings'
   })
@@ -34,9 +34,9 @@ function provideStorage(){
     RegisterPage
   ],
   providers: [
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     BookingService,
-    {provide: Storage, useFactory: provideStorage}
+    { provide: Storage, useFactory: provideStorage }
   ]
 })
-export class AppModule {}
+export class AppModule { }

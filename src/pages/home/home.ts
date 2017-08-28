@@ -1,5 +1,5 @@
-import { Component, OnInit} from '@angular/core';
-import { NavController, LoadingController, AlertController} from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 
 import { Car } from '../../domain/car/car';
@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
     public navCtrl: NavController,
     private _http: Http,
     private _loadingCtrl: LoadingController,
-    private _alertCtrl: AlertController) {}
+    private _alertCtrl: AlertController) { }
 
   ngOnInit(): void {
     let loader = this._loadingCtrl.create({
@@ -42,13 +42,13 @@ export class HomePage implements OnInit {
 
         this._alertCtrl.create({
           title: 'No Connection',
-          buttons:[{text: 'Ok'}],
+          buttons: [{ text: 'Ok' }],
           subTitle: 'Try again leter.'
         }).present();
       });
   }
 
   selectCar(car): void {
-    this.navCtrl.push(ChoosePage, {selectedCar: car});
+    this.navCtrl.push(ChoosePage, { selectedCar: car });
   }
 }

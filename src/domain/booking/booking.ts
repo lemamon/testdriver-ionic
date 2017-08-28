@@ -8,6 +8,7 @@ export class Booking {
     public name: string = '',
     public address: string = '',
     public email: string = '',
-    public date: string = new Date().toISOString()
-  ){}
+    public date: string = new Date().toISOString(),
+    public confirm: boolean = false
+  ) { }
 }

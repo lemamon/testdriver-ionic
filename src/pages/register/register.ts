@@ -28,29 +28,28 @@ export class RegisterPage {
 
     this._alert = _alertCtrl.create({
       title: 'Notice',
-      buttons: [{text: 'Ok', handler: () => navCtrl.setRoot(HomePage)}]
+      buttons: [{ text: 'Ok', handler: () => navCtrl.setRoot(HomePage) }]
     })
+
   }
 
   going(): void {
 
-    if(!this.booking.name || !this.booking.address || !this.booking.email){
+    if (!this.booking.name || !this.booking.address || !this.booking.email) {
       this._alertCtrl.create({
         title: 'Invalid Values!!!',
-        buttons: [{text: 'Ok'}]
+        buttons: [{ text: 'Ok' }]
       }).present();
 
       return;
     }
 
-    this.bookingService.going(this.booking)
-      .then(() => {
-        this._alert.setSubTitle('Sucess!!');
-        this._alert.present();
-      })
-      .catch(err => {
-        console.error(err);
-        this._alert.setSubTitle('Error!!');
+    this.bookingService
+      .going(this.booking)
+      .then(confirm => {
+        confirm ?
+          this._alert.setSubTitle('Sucess!!') :
+          this._alert.setSubTitle('Error!!');
         this._alert.present();
       });
   }

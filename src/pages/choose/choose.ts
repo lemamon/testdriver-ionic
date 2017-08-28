@@ -9,13 +9,13 @@ import { RegisterPage } from '../register/register'
   templateUrl: 'choose.html'
 })
 
-export class ChoosePage{
+export class ChoosePage {
 
   public car: Car;
   public options: Array<Option>;
   private _totalPrice: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams){
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.car = this.navParams.get('selectedCar');
     this._totalPrice = this.car.preco;
 
@@ -26,18 +26,18 @@ export class ChoosePage{
     ];
   }
 
-  get totalPrice(): number{
+  get totalPrice(): number {
     return this._totalPrice;
   }
 
-  syncTotal(on: boolean, option): void{
+  syncTotal(on: boolean, option): void {
     on ? this._totalPrice += option.preco : this._totalPrice -= option.preco;
   }
 
-  goToRegister(): void{
-    this.navCtrl.push(RegisterPage,{
+  goToRegister(): void {
+    this.navCtrl.push(RegisterPage, {
       car: this.car,
       totalPrice: this.totalPrice
-     });
+    });
   }
 }
