@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Choose Car
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-item-group>
+        <ion-item-divider color="light">
+          <ion-icon name="car"></ion-icon>
+          Car
+        </ion-item-divider>
+        <ion-item>{{ car.nome }}</ion-item>
+        <ion-item>R$ {{ car.preco}}</ion-item>
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-item-divider color="light">
+          <ion-icon name="options"></ion-icon>
+          Options
+        </ion-item-divider>
+        <ion-item *ngFor="let option of options">
+          <ion-label>
+            <h2>{{ option.nome }}</h2>
+            <h3>{{ option.preco }}</h3>
+          </ion-label>
+          <ion-toggle #toggle color="secondary" (ionChange)="syncTotal(toggle.checked, option)"></ion-toggle>
+        </ion-item>
+      </ion-item-group>
+
+      <ion-item-divider color="light">
+        Total: R$ {{totalPrice}}
+      </ion-item-divider>
+
+    </ion-card-content>
+  </ion-card>
+  <button ion-button clear block (click)="goToRegister()">next</button>
+</ion-content>

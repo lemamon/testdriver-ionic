@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>{{ booking.car.nome }}</h2>
+  <p>R$ {{ booking.value }}</p>
+  <form (ngSubmit)="going()">
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input [(ngModel)]="booking.name" name="name" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Address</ion-label>
+        <ion-input [(ngModel)]="booking.address" name="address" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input [(ngModel)]="booking.email" name="email" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Date</ion-label>
+        <ion-datetime [(ngModel)]="booking.date" name="date" displayFormat="DD/MM/YY"></ion-datetime>
+    </ion-item>
+
+    <button ion-button block type="submit">Finish</button>
+  </form>
+</ion-content>
