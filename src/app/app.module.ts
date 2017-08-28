@@ -5,10 +5,16 @@ import { HomePage } from '../pages/home/home';
 import { ChoosePage } from '../pages/choose/choose';
 import { RegisterPage } from '../pages/register/register';
 import { BookingService } from "../domain/booking/booking-service";
-
+import { Storage } from '@ionic/storage'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+function provideStorage(){
+  return new Storage(['indexddb'],{
+    name: 'testDriver',
+    storeName: 'bookings'
+  })
+}
 
 @NgModule({
   declarations: [
@@ -29,7 +35,8 @@ import 'rxjs/add/operator/toPromise';
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BookingService
+    BookingService,
+    {provide: Storage, useFactory: provideStorage}
   ]
 })
 export class AppModule {}
