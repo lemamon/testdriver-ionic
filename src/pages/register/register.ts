@@ -51,6 +51,11 @@ export class RegisterPage {
           this._alert.setSubTitle('Sucess!!') :
           this._alert.setSubTitle('Error!!');
         this._alert.present();
+      })
+      .catch(err => {
+        console.log(err);
+        this._alert.setSubTitle(err.message);
+        this._alert.present();
       });
   }
 
