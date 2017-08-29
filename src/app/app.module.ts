@@ -5,6 +5,7 @@ import { HomePage } from '../pages/home/home';
 import { ChoosePage } from '../pages/choose/choose';
 import { RegisterPage } from '../pages/register/register';
 import { BookingService } from "../domain/booking/booking-service";
+import { BookingDao } from "../domain/booking/booking-dao";
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -36,7 +37,8 @@ function provideStorage() {
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     BookingService,
-    { provide: Storage, useFactory: provideStorage }
+    { provide: Storage, useFactory: provideStorage },
+    BookingDao
   ]
 })
 export class AppModule { }
